@@ -82,3 +82,13 @@ describe('BrandWordmark', () => {
     expect(svg.getAttribute('viewBox')).toBe('26 0 156 24')
   })
 })
+
+describe('HyperionMark', () => {
+  it('renders the approved artwork on a navy chip at the requested size', () => {
+    const { container } = render(<primitives.HyperionMark size={34} />)
+    const img = container.querySelector('img')!
+    expect(img.getAttribute('src')).toBe('/hyperion.svg')
+    expect(img.getAttribute('width')).toBe('27')
+    expect(container.innerHTML).toContain('rgb(11, 18, 32)')
+  })
+})
